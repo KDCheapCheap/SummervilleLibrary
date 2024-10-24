@@ -3,11 +3,12 @@ using SummervilleLibrary.Data;
 using SummervilleLibrary.DTOs;
 using SummervilleLibrary.Models.DatabaseEntities;
 using SummervilleLibrary.Responses;
+using SummervilleLibrary.Services.Interfaces;
 using System.Runtime.CompilerServices;
 
 namespace SummervilleLibrary.Services;
 
-public class BookService
+public class BookService : IBookService
 {
     private readonly ApplicationDbContext _dbContext;
 

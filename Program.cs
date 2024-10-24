@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using SummervilleLibrary.Components;
 using SummervilleLibrary.Data;
+using SummervilleLibrary.Services;
+using SummervilleLibrary.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,11 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+builder.Services.AddScoped<IBookService, BookService>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"))
 );
 
+builder.Services.AddControllers();
+
 var app = builder.Build();
+
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
