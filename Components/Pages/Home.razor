@@ -1,9 +1,21 @@
 ﻿@page "/"
-@using SummervilleLibrary.Models.DatabaseEntities
-@using SummervilleLibrary.Services.Interfaces
-
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<h3>Books</h3>
+<ul>
+    @if (allBooks != null && allBooks.Any())
+    {
+        @foreach (var book in allBooks)
+        {
+            <li>@book.Title by @book.Author (@book.PublicationYear)</li>
+        }
+    }
+    else
+    {
+        <li>No books available.</li>
+    }
+</ul>

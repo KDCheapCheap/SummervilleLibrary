@@ -12,7 +12,7 @@ public class BookService : IBookService
 {
     private readonly ApplicationDbContext _dbContext;
 
-    private BookService(ApplicationDbContext dbContext)
+    public BookService(ApplicationDbContext dbContext)
     {
         _dbContext = dbContext;
     }
@@ -52,8 +52,10 @@ public class BookService : IBookService
                 Description = bookToAdd.Description,
                 Genre = bookToAdd.Genre,
                 PublicationYear = bookToAdd.PublicationYear,
-                CreatedDate = DateTime.Now,
+                CreatedDate = DateTime.UtcNow,
                 CreatedBy = "System",
+                UpdatedBy = "System",
+                UpdatedDate = DateTime.UtcNow
             };
 
             await _dbContext.Books.AddAsync(newBook);

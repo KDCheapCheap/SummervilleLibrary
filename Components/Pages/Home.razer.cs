@@ -1,4 +1,5 @@
-﻿using SummervilleLibrary.DTOs;
+﻿using Microsoft.AspNetCore.Components;
+using SummervilleLibrary.DTOs;
 using SummervilleLibrary.Models.DatabaseEntities;
 using SummervilleLibrary.Services.Interfaces;
 
@@ -6,15 +7,10 @@ namespace SummervilleLibrary.Components.Pages;
 
 public partial class Home
 {
-    private readonly IBookService _bookService;
-    
-    public List<Book> allBooks;
+    [Inject]
+    private IBookService _bookService { get; set; }
 
-    public Home(IBookService bookService)
-    {
-        _bookService = bookService;
-    }
-
+    public List<Book> allBooks = new List<Book>();
 
     protected override async Task OnInitializedAsync()
     {
