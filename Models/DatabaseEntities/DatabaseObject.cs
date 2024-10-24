@@ -1,8 +1,11 @@
-﻿namespace SummervilleLibrary.Models.DatabaseEntities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SummervilleLibrary.Models.DatabaseEntities
 {
     public abstract class DatabaseObject
     {
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }

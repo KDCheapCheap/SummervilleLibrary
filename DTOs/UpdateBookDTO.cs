@@ -1,7 +1,8 @@
-﻿namespace SummervilleLibrary.Models.DatabaseEntities
+﻿namespace SummervilleLibrary.DTOs
 {
-    public class Book : DatabaseObject
+    public class UpdateBookDTO
     {
+        public Guid Id { get; set; }
         public string Author { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;

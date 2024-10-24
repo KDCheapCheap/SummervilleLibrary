@@ -1,6 +1,6 @@
-﻿namespace SummervilleLibrary.Models.DatabaseEntities
+﻿namespace SummervilleLibrary.DTOs
 {
-    public class Book : DatabaseObject
+    public class CreateBookDTO
     {
         public string Author { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
